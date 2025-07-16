@@ -1,0 +1,46 @@
+import numpy as np
+
+# 01 reshape()
+a = np.arange(12)
+b = a.reshape(3,4)
+print("Original (1D): ",a) # [0 1 2 3 4 5 6 7 8 9 10 11]
+print("Reshaped to (3x4):\n",b) # reshape into 3 rows, 4 columns
+print()
+
+# 02  ravel() vs flatten()
+c = np.array([[1,2],[3,4]])
+print("Original 2D Array:\n",c)
+
+r = c.ravel() #view
+f = c.flatten() # copy
+
+print("Using ravel():", r)
+print("Using flatten():", f)
+
+r[0] = 100
+print("After modifying ravel:", r)
+print("Original after ravel modified (view):\n", c)
+
+f[1] = 200
+print("After modifying flatten:", f)
+print("Original after flatten modified (copy):\n", c)
+print()
+'''
+Method	   Modifies original?	 Returns
+ravel()	       No	             View
+flatten()	   No	             Copy
+
+'''
+
+# 03 transpose()
+d = np.array([[1,2],
+              [3,4]])
+print("Original 2D array:\n" , d)
+print("Transposed using .T : \n ",d.T)
+
+# ================= NumPy Reshaping Summary ==================
+# ✅ reshape() → Change shape (must match total elements)
+# ✅ ravel()  → Flattens to 1D (returns a view)
+# ✅ flatten() → Flattens to 1D (returns a copy)
+# ✅ transpose() or .T → Swaps rows and columns
+# =============================================================
